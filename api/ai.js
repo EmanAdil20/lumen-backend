@@ -5,18 +5,7 @@
 export default async function handler(req, res) {
   // Allow your Netlify site to call this backend.
   // Replace the URL below with your actual Netlify URL once you know it.
-  const allowedOrigins = [
-    "http://localhost:5173",
-    "http://localhost:4173",
-    process.env.ALLOWED_ORIGIN, // set this to your Netlify URL in Vercel dashboard
-  ].filter(Boolean);
-
-  const origin = req.headers.origin || "";
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  } else {
-    res.setHeader("Access-Control-Allow-Origin", allowedOrigins[0]);
-  }
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
